@@ -1,5 +1,6 @@
 h1{
     font-size: 5vw;
+    margin: 15px 0;
 }
 
 h2{
@@ -66,4 +67,9 @@ h4{
 .card-image{
     height: 250px;
     width: auto;
+}
+
+.buscar{
+    margin-top: 0;
+    padding: 0;
 }

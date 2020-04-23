@@ -17,7 +17,7 @@ const Datos = (props)=>{
     const casosHoy = 'https://img.icons8.com/nolan/64/today.png'
 
     const helpBolivia= () =>{
-        if(props.pais === 'Bolivia'){
+        if(props.pais === 'Bolivia' || props.pais === 'bolivia' || props.pais === 'BOLIVIA'){
             return(
                 <div className=" section">
                     <h6><b>En casos de Emergencias llamar a las lineas:</b> </h6>

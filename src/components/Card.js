@@ -10,6 +10,7 @@ const Card = (props) => {
                 <img 
                     src={props.image} 
                     className="image" 
+                    alt="img"
                 />
                 <p><b> {props.text} </b></p>
               </div>

@@ -3,7 +3,6 @@ import React from 'react';
 
 const Help = (props) => {
 
-    const numero = parseInt(props.text)
     return (
         <div className={`section ${props.clase} help`}>
             <button className="btn waves-effect waves-light boton"> 
