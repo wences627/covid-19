@@ -70,6 +70,7 @@ h4{
 }
 
 .buscar{
-    margin-top: 0;
+    margin: 0;
     padding: 0;
+    height: 250px;
 }

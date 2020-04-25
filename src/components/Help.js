@@ -4,7 +4,7 @@ import React from 'react';
 const Help = (props) => {
 
     return (
-        <div className={`section ${props.clase} help`}>
+        <div className={`${props.clase} help`}>
             <button className="btn waves-effect waves-light boton"> 
                 {props.text}
                 <i className="material-icons"> {props.icon} </i>

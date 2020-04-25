@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';  
+import React, {useState, useEffect, useRef} from 'react';  
 import Datos from './Datos';
 import Header from './Header'
 import '../index.css';
@@ -8,12 +8,14 @@ import Loading from './Loading';
 
 const App = () => {
 
-  // const [paises, setPaises] = useState('')
+  // const [paises, setPaises] = useState([])
   const [pais, setPais] = useState('Bolivia')
   const [datosPais, setDatosPais] = useState('')
   const [isFetch, setIsFetch] = useState(true)
+  const entrada = useRef()
 
   useEffect( () => {
+
     const consultarApi = async () => {
       const url = `https://coronavirus-19-api.herokuapp.com/countries/${pais}`
 
@@ -23,18 +25,14 @@ const App = () => {
       setDatosPais(datosPais)
       setIsFetch(false)
     }
+
     consultarApi()
-  }, [pais, datosPais])
+    
 
+  }, [pais])
 
-
-  const handleChange = (event) => {
+  const handleInput = (event) => {
     setPais(event.target.value)
-    event.preventDefault()
-  }
-
-  const enviarDatos = (event) => {
-    event.preventDefault();
   }
 
   if(isFetch){
@@ -46,23 +44,17 @@ const App = () => {
   return (
     <div className="App blue lighten-5">
       <Header />
-      
       <div className="container">
-        <div className="row">
-          <form className="col s12" onSubmit={enviarDatos}>
-            <div className="row">
-              <div className="input-field col s12">
-                <i className="material-icons prefix">public</i>
-                <input id="icon_prefix" type="text" className="validate" onChange={handleChange}/>
-                <label htmlFor="icon_prefix" onChange={handleChange} onSubmit={handleChange}>Introduce tu País</label>
-              </div>
-            </div>
-              <div className="buscar center">
-                <button className="waves-effect waves-light btn-small center" type="submit" name="action">Buscar
-                <i className="material-icons right">search</i>
-                </button>
-              </div>
-          </form>
+        
+        <div className="input-field col s12">
+          <i className="material-icons prefix">public</i>
+          <input 
+            type='text'
+            onChange={handleInput}  
+            ref={entrada}
+            placeholder='Introduce tu Pais'
+            className='buscar'
+          />
         </div>
         
         <Datos 
@@ -70,8 +62,8 @@ const App = () => {
           datosPais={datosPais}
         />
 
-
       </div>
+
       <Footer />
     </div>
   )
